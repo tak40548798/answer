@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>no7</title>
+  </head>
+
+  <style>
+    .output {
+      height: auto;
+      border: 1px solid red;
+    }
+  </style>
+  <body>
+    <div>
+      document.body.width DefaultOutput:
+      <div class="output defaultOutput"></div>
+    </div>
+    <div>
+      document.body.width DebounceOutput:
+      <div class="output debounceOutput"></div>
+    </div>
+    <div>
+      document.body.width ThrottleOutput:
+      <div class="output throttleOutput"></div>
+    </div>
+  </body>
+  <script>
+    /*
+    模擬需要 resize 事件動態改動 dom 元素尺寸時的狀態
+    */
+    let defaultOutput = document.querySelector(".defaultOutput");
+    let debounceOutput = document.querySelector(".debounceOutput");
+    let throttleOutput = document.querySelector(".throttleOutput");
+
+    window.addEventListener("resize", (e) => {
+      defaultResize(defaultOutput);
+      debounceResize(debounceOutput);
+      throttleResize(throttleOutput);
+    });
+    const defaultResize = (outputElement) => {
+      let { width } = document.body.getBoundingClientRect();
+      width = width / 2;
+      outputElement.innerHTML = `${width.toFixed(1)}px`;
+      outputElement.style.width = `${width.toFixed(1)}px`;
+    };
+    const throttleResize = throttle(defaultResize, 300);
+    const debounceResize = debounce(defaultResize, 200);
+    function debounce(func, delay = 1000) {
+      let timer;
+      return (...args) => {
+        clearTimeout(timer);
+        timer = setTimeout(() => {
+          func(...args);
+        }, delay);
+      };
+    }
+    function throttle(func, timeout = 1000) {
+      let begin = 0;
+      return function (...args) {
+        let end = new Date().getTime();
+        if (end - begin > timeout) {
+          func(...args);
+          begin = end;
+        }
+      };
+    }
+  </script>
+</html>
