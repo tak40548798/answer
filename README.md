@@ -133,12 +133,6 @@ input : [[6, 11], [5, 8], [17, 20], [7], [14,17]]
 output: { overlap: [[6, 8], [17]], notInclude: [[1, 4], [12, 13]] }
 
 ```javascript
-/**
- * 請根據輸入的數字區間找出數字 1 到 20 間重疊與未包含的數字區間
- * input : [[6, 11], [5, 8], [17, 20], [7], [14,17]]
- * output: { overlap: [[6, 8], [17]], notInclude: [[1, 4], [12, 13]] }
- */
-
 function getRange(array) {
   let min = Math.min(...array);
   let max = Math.max(...array);
