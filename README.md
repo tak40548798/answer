@@ -197,10 +197,14 @@ function getOverlayAndNotInclude(input) {
 }
 
 const input1 = [[6, 11], [5, 8], [17, 20], [7], [14, 17]];
-const input2 = [[], [2, 4], [2, 3], [2, 3]];
+const input2 = [[], [1, 3], [1, 2], [2, 3]];
 const input3 = [[]];
-const output = getOverlayAndNotInclude(input3);
-console.log(output);
+const output1 = getOverlayAndNotInclude(input1);
+const output2 = getOverlayAndNotInclude(input2);
+const output3 = getOverlayAndNotInclude(input3);
+console.log(output1); // { overlap: [ [ 6, 8 ], [ 17 ] ], notInclude: [ [ 1, 4 ], [ 12, 13 ] ] }
+console.log(output2); // { overlap: [ [ 1, 3 ] ], notInclude: [ [ 4, 20 ] ] }
+console.log(output3); // { overlap: [], notInclude: [ [ 1, 20 ] ] }
 
 // 01 02 03 04 05 06 07 08 09 10 11 12 13 14 15 16 17 18 19 20
 //  0  0  0  0  0  1  1  1  1  1  1  0  0  0  0  0  0  0  0  0  6-11
