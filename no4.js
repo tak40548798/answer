@@ -57,14 +57,20 @@ function getOverlayAndNotInclude(input) {
     }
   }
 
+  if (notInlcudeArray.length) {
+    notInclude.push(getRange(notInlcudeArray));
+  }
+
   return {
     overlap: overlap,
     notInclude: notInclude,
   };
 }
 
-const input = [[6, 11], [5, 8], [17, 20], [7], [14, 17]];
-const output = getOverlayAndNotInclude(input);
+const input1 = [[6, 11], [5, 8], [17, 20], [7], [14, 17]];
+const input2 = [[], [2, 4], [2, 3], [2, 3]];
+const input3 = [[]];
+const output = getOverlayAndNotInclude(input3);
 console.log(output);
 
 // 01 02 03 04 05 06 07 08 09 10 11 12 13 14 15 16 17 18 19 20
