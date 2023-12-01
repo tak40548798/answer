@@ -206,6 +206,7 @@ console.log(output1); // { overlap: [ [ 6, 8 ], [ 17 ] ], notInclude: [ [ 1, 4 ]
 console.log(output2); // { overlap: [ [ 1, 3 ] ], notInclude: [ [ 4, 20 ] ] }
 console.log(output3); // { overlap: [], notInclude: [ [ 1, 20 ] ] }
 
+// { overlap: [ [ 6, 8 ], [ 17 ] ], notInclude: [ [ 1, 4 ], [ 12, 13 ] ] }
 // 01 02 03 04 05 06 07 08 09 10 11 12 13 14 15 16 17 18 19 20
 //  0  0  0  0  0  1  1  1  1  1  1  0  0  0  0  0  0  0  0  0  6-11
 //  0  0  0  0  1  1  1  1  0  0  0  0  0  0  0  0  0  0  0  0  5-8
